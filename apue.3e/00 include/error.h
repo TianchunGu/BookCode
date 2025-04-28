@@ -2,6 +2,13 @@
 #include <errno.h>      /* for definition of errno */
 #include <stdarg.h>     /* ISO C variable aruments */
 
+/*
+P13
+可将在<errno.h>中定义的各种出错分成两类致命性的和非致命性的。
+对于致命性的错误无法执行恢复动作。最多能做的是在用户屏幕上打印出一条出错消息或者将一条出错消息写入志文件中，然后退出。
+对于非致命性的出错，有时可以较要善地进行处理。大多数非致命性出错是暂时的（如资源短缺），当系统中的活动较少时，这种出错很可能不会发生。
+*/
+
 static void err_doit(int, int, const char *, va_list);
 
 /*
